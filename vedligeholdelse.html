@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="da" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vedligeholdelse af dit Stykka køkken. Pleje af materialer, mekanisk stramning og professionel service.">
+    <meta name="keywords" content="Stykka, vedligeholdelse, køkken, pleje, service, krydsfiner, linoleum, laminat">
+    <title>Vedligeholdelse - Stykka Køkken i Fælledby</title>
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FEFEFE;
+            color: #2B2B2B;
+        }
+        .stykka-logo {
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: bold;
+        }
+        .page-title-category {
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: #ab6627;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+        .page-title-main {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #2B2B2B;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: #5A5A5A;
+            margin-bottom: 2.5rem;
+            max-width: 60ch;
+            line-height: 1.6;
+        }
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #005B3B;
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background-color: #004A2F;
+        }
+        .faelledby-accent {
+            color: #ab6627;
+        }
+        .faelledby-green {
+            background-color: #005B3B;
+            color: white;
+        }
+        .faelledby-warm {
+            background-color: #FBF9F7;
+        }
+        .section-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: #ab6627;
+            color: white;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .section-icon svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        .checkmark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #27ae60;
+            color: white;
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        .checkmark svg {
+            width: 0.875rem;
+            height: 0.875rem;
+        }
+        .warning-box {
+            background-color: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        .material-button {
+            padding: 1rem 1.5rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.75rem;
+            background-color: white;
+            color: #374151;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .material-button.active {
+            background-color: #ab6627;
+            color: white;
+            border-color: #ab6627;
+            box-shadow: 0 4px 12px rgba(171, 102, 39, 0.25);
+        }
+        .material-button:hover {
+            border-color: #ab6627;
+            background-color: #fef3e8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .material-button.active:hover {
+            background-color: #92551f;
+            transform: translateY(-2px);
+        }
+        .material-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        .material-button.active .material-icon {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .material-button:not(.active) .material-icon {
+            background-color: #ab6627;
+        }
+        .material-button:hover:not(.active) .material-icon {
+            background-color: #92551f;
+        }
+        .material-content {
+            display: none;
+            background-color: #fafafa;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        .material-content.active {
+            display: block;
+        }
+        .material-content h4 {
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        .material-content p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .materials-hero-image {
+            width: 100%;
+            max-width: 750px;
+            height: auto;
+            margin: 0 auto 2rem auto;
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .page-title-main {
+                font-size: 2.5rem;
+            }
+            .section-subtitle {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="content-section py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-gray-800">
+                <a href="index.html">Fælledby <span class="text-base font-medium text-gray-500">x</span> <span class="stykka-logo">Stykka</span></a>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Hjem</a>
+                <a href="vedligeholdelse.html" class="text-black font-medium text-sm">Vedligeholdelse</a>
+                <a href="#" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Opgraderinger</a>
+                <a href="#" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Reservedele</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 md:py-24">
+        <div class="content-section">
+            <!-- Hero Section -->
+            <div class="text-center mb-16">
+                <div class="section-icon mx-auto">
+                    <i data-lucide="wrench"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Dit Stykka Køkken: Bygget til dig</h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Vi har bygget dit køkken til at være hjertet i dit nye hjem. Her er, hvad der gør det specielt.</p>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-16">
+                
+                <!-- Materials Section -->
+                <div class="faelledby-warm p-8 rounded-lg">
+                    <img src="images/materials-cube.png" alt="Stykka birkekrydsfiner kvalitet" class="materials-hero-image" loading="lazy">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8 faelledby-accent">Materialer i topkvalitet</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="checkmark">
+                                <i data-lucide="check"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">Kerne af birkekrydsfiner</h3>
+                                <p class="text-gray-600">Stærkt, stabilt og smukt. Vi bruger en slidstærk og FSC-certificeret birkekrydsfiner, der giver varme og karakter.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="checkmark">
+                                <i data-lucide="check"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">Slidstærk laminat</h3>
+                                <p class="text-gray-600">Overfladerne er belagt med en højtrykslaminat, der er utroligt modstandsdygtig over for ridser, stød og pletter.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="checkmark">
+                                <i data-lucide="check"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg mb-2">Gennemtænkte detaljer</h3>
+                                <p class="text-gray-600">Fra de robuste hængsler til de funktionelle skuffeudtræk er alle komponenter valgt for deres holdbarhed.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Materials Section -->
+                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                    <h2 class="text-2xl font-bold mb-6 faelledby-accent">Pleje og Vedligeholdelse</h2>
+                    
+                    <!-- Material Selection Buttons -->
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                        <button class="material-button active" data-material="plywood">
+                            <div class="material-icon">K</div>
+                            <span class="text-sm font-medium">Krydsfiner</span>
+                        </button>
+                        <button class="material-button" data-material="linoleum">
+                            <div class="material-icon">L</div>
+                            <span class="text-sm font-medium">Linoleum</span>
+                        </button>
+                        <button class="material-button" data-material="laminate">
+                            <div class="material-icon">La</div>
+                            <span class="text-sm font-medium">Laminat</span>
+                        </button>
+                        <button class="material-button" data-material="steel">
+                            <div class="material-icon">S</div>
+                            <span class="text-sm font-medium">Stål</span>
+                        </button>
+                        <button class="material-button" data-material="mechanical">
+                            <div class="material-icon">M</div>
+                            <span class="text-sm font-medium">Mekanik</span>
+                        </button>
+                    </div>
+
+                    <!-- Material Content Sections -->
+                    <div id="plywood" class="material-content active">
+                        <h3 class="font-semibold text-lg mb-4 faelledby-accent">Birkekrydsfiner (UV-lakeret)</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Daglig rengøring:</h4>
+                                <p class="text-gray-600">Brug en blød, fugtig klud med lunkent vand. Tør altid efter for at undgå vandskader. UV-lakeringen gør overfladen modstandsdygtig og nem at rengøre.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Pletter:</h4>
+                                <p class="text-gray-600">Rengør straks med en blød klud og mildt sæbevand. Ved genstridige pletter kan en melaminsvamp bruges meget forsigtigt med let tryk.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">UV-lakering:</h4>
+                                <p class="text-gray-600">Den UV-hærdede lakering beskytter træet og giver en holdbar, vandafvisende overflade der bevarer træets naturlige udseende.</p>
+                            </div>
+                            <div class="warning-box">
+                                <h4 class="font-semibold mb-2 text-red-700">Undgå:</h4>
+                                <ul class="text-red-600 space-y-1 text-sm">
+                                    <li>• Slibepapir - ødelægger UV-lakeringen</li>
+                                    <li>• Stærke kemikalier - kan beskadige lakeringen</li>
+                                    <li>• Varme gryder - kan efterlade brandmærker</li>
+                                    <li>• Overdreven fugt - kan forårsage opsvulmen</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="linoleum" class="material-content">
+                        <h3 class="font-semibold text-lg mb-4 faelledby-accent">Linoleum Fronter</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Daglig rengøring:</h4>
+                                <p class="text-gray-600">Brug en blød klud med lunkent vand og et mildt rengøringsmiddel. Linoleum er naturligt bakteriedræbende.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Pletter:</h4>
+                                <p class="text-gray-600">De fleste pletter fjernes med sæbevand. Ved fedtpletter kan sprit bruges forsigtigt.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Periodisk pleje:</h4>
+                                <p class="text-gray-600">Påfør en tynd linoleumolje årligt for at bevare materialets naturlige fleksibilitet.</p>
+                            </div>
+                            <div class="warning-box">
+                                <h4 class="font-semibold mb-2 text-red-700">Undgå:</h4>
+                                <ul class="text-red-600 space-y-1 text-sm">
+                                    <li>• Skurepulver - kan ridse overfladen</li>
+                                    <li>• Ammoniak - kan misfarve materialet</li>
+                                    <li>• Direkte sollys - kan forårsage bleging</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="laminate" class="material-content">
+                        <h3 class="font-semibold text-lg mb-4 faelledby-accent">Laminat Bordplader</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Daglig rengøring:</h4>
+                                <p class="text-gray-600">Brug en blød klud med lunkent vand og et mildt rengøringsmiddel. Laminat er meget slidstærkt og nemt at rengøre.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Pletter:</h4>
+                                <p class="text-gray-600">Ved genstridige pletter kan en melaminsvamp bruges forsigtigt. Brug kun let tryk.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Varme beskyttelse:</h4>
+                                <p class="text-gray-600">Brug altid underlag under varme gryder og pander. Laminat kan tåle op til 180°C kortvarigt.</p>
+                            </div>
+                            <div class="warning-box">
+                                <h4 class="font-semibold mb-2 text-red-700">Undgå:</h4>
+                                <ul class="text-red-600 space-y-1 text-sm">
+                                    <li>• Varme gryder direkte på bordpladen</li>
+                                    <li>• Skæring direkte på overfladen</li>
+                                    <li>• Slibemidler eller ståluldt</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="steel" class="material-content">
+                        <h3 class="font-semibold text-lg mb-4 faelledby-accent">Stål (Vask & Beslag)</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Daglig rengøring:</h4>
+                                <p class="text-gray-600">Brug en blød klud med lunkent vand og et mildt rengøringsmiddel. Tør altid efter for at undgå vandpletter.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Rust/oxidation:</h4>
+                                <p class="text-gray-600">Ved tegn på rust, brug en blød børste med citronsyre eller specialrengøringsmiddel til rustfrit stål.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Polering:</h4>
+                                <p class="text-gray-600">Brug en tør mikrofiberklud og polér i stålkornets retning for at opnå den bedste finish.</p>
+                            </div>
+                            <div class="warning-box">
+                                <h4 class="font-semibold mb-2 text-red-700">Undgå:</h4>
+                                <ul class="text-red-600 space-y-1 text-sm">
+                                    <li>• Ståluldt eller skurepulver</li>
+                                    <li>• Klorbaserede rengøringsmidler</li>
+                                    <li>• Polering på tværs af stålkornet</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="mechanical" class="material-content">
+                        <h3 class="font-semibold text-lg mb-4 faelledby-accent">Mekanisk Stramning</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold mb-2">Hængsler:</h4>
+                                <p class="text-gray-600">Tjek hængsler årligt for løse skruer. Brug en skruetrækker til at stramme forsigtigt - overtræk ikke.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Skuffeudtræk:</h4>
+                                <p class="text-gray-600">Juster skuffeudtræk hvis skuffer ikke lukker ordentligt. Følg producentens vejledning for justering.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-2">Greb og håndtag:</h4>
+                                <p class="text-gray-600">Kontrollér at greb sidder fast. Stram skruer bagfra med passende skruetrækker.</p>
+                            </div>
+                            <div class="warning-box">
+                                <h4 class="font-semibold mb-2 text-red-700">Vigtigt:</h4>
+                                <ul class="text-red-600 space-y-1 text-sm">
+                                    <li>• Brug kun passende værktøj</li>
+                                    <li>• Stram aldrig for hårdt - kan beskadige træ</li>
+                                    <li>• Kontakt support ved større problemer</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Tips Section -->
+            <div class="mt-16 bg-white p-8 rounded-lg shadow-sm">
+                <h2 class="text-2xl font-bold mb-6 faelledby-accent">Ekstra Tips til Langtidsholdbarhed</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="section-icon mx-auto">
+                            <i data-lucide="droplets"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-3">Fugtstyring</h3>
+                        <p class="text-gray-600 text-sm">Sørg for god ventilation i køkkenet for at undgå skader fra kondens og fugt.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="section-icon mx-auto">
+                            <i data-lucide="shield"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-3">Forebyggelse</h3>
+                        <p class="text-gray-600 text-sm">Brug skærebrætter og underlag til at beskytte bordpladen mod ridser og varme.</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="section-icon mx-auto">
+                            <i data-lucide="clock"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-3">Regelmæssig Check</h3>
+                        <p class="text-gray-600 text-sm">Tjek hængsler og beslag årligt og juster om nødvendigt for optimal funktion.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="mt-16 text-center">
+                <h2 class="text-2xl font-bold mb-4">Har du spørgsmål?</h2>
+                <p class="text-gray-600 mb-6">Vores eksperter er klar til at hjælpe dig med vedligeholdelse og pleje af dit Stykka køkken.</p>
+                <a href="mailto:support@stykka.com" class="btn btn-primary">Kontakt Support</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="faelledby-green">
+        <div class="content-section py-12">
+            <div class="grid md:grid-cols-3 gap-8 text-left">
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-white">Stykka ApS</h3>
+                    <p class="text-gray-200 text-sm">Refshalevej 163A<br>1432 København K</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-white">Kontakt</h3>
+                    <p class="text-gray-200 text-sm mb-2">Support: <a href="mailto:support@stykka.com" class="hover:text-white transition-colors">support@stykka.com</a></p>
+                    <p class="text-gray-200 text-sm">Telefon: <a href="tel:+4512345678" class="hover:text-white transition-colors">+45 12 34 56 78</a></p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-white">Subpages</h3>
+                    <div class="space-y-2">
+                        <a href="vedligeholdelse.html" class="block text-gray-200 hover:text-white transition-colors text-sm">Vedligeholdelse</a>
+                        <a href="#" class="block text-gray-200 hover:text-white transition-colors text-sm">Opgraderinger</a>
+                        <a href="#" class="block text-gray-200 hover:text-white transition-colors text-sm">Reservedele</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-400 mt-8 pt-6 text-left text-gray-300 text-xs">
+                <p>&copy; 2025 Stykka ApS. Alle rettigheder forbeholdes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Interactive material buttons functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const materialButtons = document.querySelectorAll('.material-button');
+            const materialContents = document.querySelectorAll('.material-content');
+            
+            materialButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetMaterial = this.getAttribute('data-material');
+                    
+                    // Remove active class from all buttons
+                    materialButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Hide all material content sections
+                    materialContents.forEach(content => content.classList.remove('active'));
+                    // Show target material content
+                    document.getElementById(targetMaterial).classList.add('active');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
