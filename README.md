@@ -46,6 +46,15 @@ This digital brochure presents Stykka's circular kitchen philosophy and premium 
 - **Primary Font**: Inter (400, 500, 700 weights)
 - **Brand Font**: Georgia Bold for "Stykka" logo (now larger in footer)
 
+## 📱 Mobile Responsiveness
+
+### Responsive Features
+- **Hamburger Navigation**: Collapsible mobile menu with smooth animations
+- **Optimized Spacing**: 1.5rem padding on mobile for better readability
+- **Responsive Images**: Adaptive sizing across all screen sizes
+- **Touch-Friendly Buttons**: Appropriately sized for mobile interaction
+- **Flexible Layouts**: Flexbox ordering for optimal mobile content flow
+
 ## 🚀 Performance Optimizations
 
 - **Font Loading**: Async font loading with fallbacks
@@ -104,8 +113,10 @@ Configured for Vercel deployment with automatic builds on push to main branch.
 
 ### Textured Footer
 - **Custom texture**: Uses `background-texture.jpg` with green overlay
-- **Consistent branding**: Applied to both pages
-- **Larger Stykka logo**: Georgia Bold, removed "ApS"
+- **Consistent branding**: Applied to both pages with identical styling
+- **Larger Stykka logo**: Georgia Bold, removed "ApS" (text-4xl)
+- **Enhanced spacing**: 16px padding, 12px gaps, improved typography
+- **Layered overlays**: Multiple gradient layers for depth and readability
 
 ### Navigation
 - **Section-based**: Links to page sections (#tilvalg, #takeback, etc.)

@@ -160,6 +160,118 @@
             }
         }
         
+        /* Mobile responsive adjustments */
+        @media (max-width: 767px) {
+            .content-section {
+                padding: 0 1.5rem;
+            }
+            
+            header .content-section {
+                padding: 0 1.5rem;
+            }
+            
+            .materials-hero-image {
+                max-width: 100%;
+                margin-bottom: 1.5rem;
+            }
+            
+            .material-button {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+            }
+            
+            .material-icon {
+                width: 2rem;
+                height: 2rem;
+                font-size: 1rem;
+            }
+            
+            .material-content {
+                padding: 1.25rem;
+            }
+            
+            .warning-box {
+                padding: 0.75rem;
+                margin: 1rem 0;
+            }
+            
+            .mobile-nav {
+                display: block;
+            }
+            
+            .mobile-nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                z-index: 60;
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .mobile-nav-menu.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-nav-menu a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                color: #374151;
+                font-weight: 500;
+                text-decoration: none;
+            }
+            
+            .mobile-nav-menu a:hover {
+                color: #000;
+            }
+            
+            .mobile-nav-menu a:last-child {
+                border-bottom: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                cursor: pointer;
+                padding: 0.5rem;
+            }
+            
+            .mobile-nav-toggle span {
+                width: 20px;
+                height: 2px;
+                background: #374151;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .mobile-nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+            
+            .mobile-nav-menu {
+                display: none !important;
+            }
+        }
+        
         /* Scrolling header transparency */
         .header-transparent {
             background-color: rgba(255, 255, 255, 0.3) !important;
@@ -193,6 +305,15 @@
             background: linear-gradient(180deg, rgba(0, 91, 59, 0.1) 0%, rgba(0, 91, 59, 0.2) 100%);
             mix-blend-mode: overlay;
             z-index: 2;
+        }
+        .footer-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+            z-index: 3;
         }
         
         /* Enhanced material buttons */
@@ -277,6 +398,23 @@
                 <a href="index.html#tilvalg" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Tilvalg</a>
                 <a href="index.html#takeback" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Take-Back</a>
             </nav>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav md:hidden">
+                <div class="mobile-nav-toggle" onclick="toggleMobileNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <a href="index.html" onclick="closeMobileNav()">Hjem</a>
+            <a href="vedligeholdelse.html" onclick="closeMobileNav()">Vedligeholdelse</a>
+            <a href="index.html#tilvalg" onclick="closeMobileNav()">Tilvalg</a>
+            <a href="index.html#takeback" onclick="closeMobileNav()">Take-Back</a>
         </div>
     </header>
 
@@ -338,7 +476,7 @@
                     <h2 class="text-2xl font-bold mb-6 faelledby-accent">Pleje og Vedligeholdelse</h2>
                     
                     <!-- Material Selection Buttons -->
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-8">
                         <button class="material-button active" data-material="plywood">
                             <div class="material-icon">K</div>
                             <span class="text-sm font-medium">Krydsfiner</span>
@@ -536,28 +674,29 @@
     </main>
 
     <!-- Footer -->
-    <footer class="textured-footer">
-        <div class="content-section py-12">
-            <div class="grid md:grid-cols-3 gap-8 text-left">
+    <footer class="textured-footer no-print">
+        <div class="footer-overlay"></div>
+        <div class="content-section py-16 relative z-10">
+            <div class="grid md:grid-cols-3 gap-12 text-left">
                 <div>
-                    <h3 class="stykka-logo text-3xl mb-4 text-white">Stykka</h3>
-                    <p class="text-gray-200 text-sm">Refshalevej 163A<br>1432 København K</p>
+                    <h3 class="stykka-logo text-4xl mb-6 text-white">Stykka</h3>
+                    <p class="text-gray-200 text-base leading-relaxed">Refshalevej 163A<br>1432 København K</p>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg mb-4 text-white">Kontakt</h3>
-                    <p class="text-gray-200 text-sm mb-2">Support: <a href="mailto:support@stykka.com" class="hover:text-white transition-colors">support@stykka.com</a></p>
-                    <p class="text-gray-200 text-sm">Telefon: <a href="tel:+4512345678" class="hover:text-white transition-colors">+45 12 34 56 78</a></p>
+                    <h3 class="font-semibold text-xl mb-6 text-white">Kontakt</h3>
+                    <p class="text-gray-200 text-base mb-3">Support: <a href="mailto:support@stykka.com" class="hover:text-white transition-colors underline-offset-4 hover:underline">support@stykka.com</a></p>
+                    <p class="text-gray-200 text-base">Telefon: <a href="tel:+4512345678" class="hover:text-white transition-colors underline-offset-4 hover:underline">+45 12 34 56 78</a></p>
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg mb-4 text-white">Subpages</h3>
-                    <div class="space-y-2">
-                        <a href="vedligeholdelse.html" class="block text-gray-200 hover:text-white transition-colors text-sm">Vedligeholdelse</a>
-                        <a href="#" class="block text-gray-200 hover:text-white transition-colors text-sm">Opgraderinger</a>
-                        <a href="#" class="block text-gray-200 hover:text-white transition-colors text-sm">Reservedele</a>
+                    <h3 class="font-semibold text-xl mb-6 text-white">Navigation</h3>
+                    <div class="space-y-3">
+                        <a href="vedligeholdelse.html" class="block text-gray-200 hover:text-white transition-colors text-base underline-offset-4 hover:underline">Vedligeholdelse</a>
+                        <a href="#" class="block text-gray-200 hover:text-white transition-colors text-base underline-offset-4 hover:underline">Opgraderinger</a>
+                        <a href="#" class="block text-gray-200 hover:text-white transition-colors text-base underline-offset-4 hover:underline">Reservedele</a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-400 mt-8 pt-6 text-left text-gray-300 text-xs">
+            <div class="border-t border-gray-400 mt-12 pt-8 text-left text-gray-300 text-sm">
                 <p>&copy; 2025 Stykka. Alle rettigheder forbeholdes.</p>
             </div>
         </div>
@@ -629,6 +768,23 @@
                 }
             }, 500);
         });
+        
+        // Mobile navigation functions
+        function toggleMobileNav() {
+            const menu = document.getElementById('mobileNavMenu');
+            const toggle = document.querySelector('.mobile-nav-toggle');
+            
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+        
+        function closeMobileNav() {
+            const menu = document.getElementById('mobileNavMenu');
+            const toggle = document.querySelector('.mobile-nav-toggle');
+            
+            menu.classList.remove('active');
+            toggle.classList.remove('active');
+        }
     </script>
 
 </body>

@@ -392,6 +392,170 @@
                 height: 700px;
             }
         }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 767px) {
+            .color-selector {
+                top: 20px;
+                left: 20px;
+                gap: 8px;
+                flex-wrap: wrap;
+            }
+            
+            .color-btn {
+                width: 60px;
+                height: 60px;
+                border-width: 2px;
+            }
+            
+            .service-icon-container {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .service-icon {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .service-card {
+                margin-bottom: 1rem;
+            }
+            
+            .notice-box {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+            
+            .notice-box .flex {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .notice-box .flex-shrink-0 {
+                align-self: flex-start;
+            }
+            
+            .blended-banner {
+                height: 400px;
+            }
+            
+            /* Mobile header improvements */
+            .content-section {
+                padding: 0 1.5rem;
+            }
+            
+            header .content-section {
+                padding: 0 1.5rem;
+            }
+            
+            header .text-xl {
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+            
+            header .text-base {
+                font-size: 0.875rem;
+            }
+            
+            .mobile-nav {
+                display: block;
+            }
+            
+            .mobile-nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                transform: translateY(-100%);
+                transition: transform 0.3s ease;
+                z-index: 60;
+                padding: 1rem;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                display: block;
+            }
+            
+            .mobile-nav-menu.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-nav-menu a {
+                display: block;
+                padding: 0.75rem 0;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                color: #374151;
+                font-weight: 500;
+                text-decoration: none;
+            }
+            
+            .mobile-nav-menu a:hover {
+                color: #000;
+            }
+            
+            .mobile-nav-menu a:last-child {
+                border-bottom: none;
+            }
+            
+            .mobile-nav-toggle {
+                display: flex;
+                flex-direction: column;
+                gap: 3px;
+                cursor: pointer;
+                padding: 0.5rem;
+                margin-right: -0.5rem;
+            }
+            
+            .mobile-nav-toggle span {
+                width: 20px;
+                height: 2px;
+                background: #374151;
+                transition: all 0.3s ease;
+            }
+            
+            .mobile-nav-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .mobile-nav-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .mobile-nav-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+            
+            /* Digital platform section mobile reordering */
+            .digital-platform-grid {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+            
+            .digital-platform-image {
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none;
+            }
+            
+            .mobile-nav-menu {
+                display: none !important;
+            }
+            
+            /* Reset digital platform ordering on desktop */
+            .digital-platform-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .digital-platform-image {
+                margin-bottom: 0;
+            }
+        }
         .textured-footer {
             position: relative;
             background: url('images/background-texture.jpg') repeat;
@@ -668,6 +832,23 @@
                 <a href="#qrcode" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">QR-koder</a>
                 <a href="#service" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Service</a>
             </nav>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav md:hidden">
+                <div class="mobile-nav-toggle" onclick="toggleMobileNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <a href="#tilvalg" onclick="closeMobileNav()">Tilvalg</a>
+            <a href="#takeback" onclick="closeMobileNav()">Take-Back</a>
+            <a href="#qrcode" onclick="closeMobileNav()">QR-koder</a>
+            <a href="#service" onclick="closeMobileNav()">Service</a>
         </div>
     </header>
 
@@ -900,10 +1081,10 @@
     <section id="qrcode" class="py-16 md:py-24 faelledby-warm">
         <div class="content-section">
             <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-                <div class="order-2 md:order-1">
+                <div class="order-1 md:order-1">
                     <img src="images/iso_front_end.png" alt="Stykka digital platform interface" class="qr-square-image" loading="lazy">
                 </div>
-                <div class="order-1 md:order-2">
+                <div class="order-2 md:order-2">
                     <div class="section-icon">
                         <i data-lucide="qr-code"></i>
                     </div>
@@ -1144,6 +1325,23 @@
             // Start auto-switching on page load
             startAutoSwitch();
         });
+        
+        // Mobile navigation functions
+        function toggleMobileNav() {
+            const menu = document.getElementById('mobileNavMenu');
+            const toggle = document.querySelector('.mobile-nav-toggle');
+            
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+        
+        function closeMobileNav() {
+            const menu = document.getElementById('mobileNavMenu');
+            const toggle = document.querySelector('.mobile-nav-toggle');
+            
+            menu.classList.remove('active');
+            toggle.classList.remove('active');
+        }
     </script>
 
 </body>
