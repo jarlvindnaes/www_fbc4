@@ -40,17 +40,38 @@ This digital brochure presents Stykka's circular kitchen philosophy and premium 
 - **Fælledby Orange**: `#ab6627` - Primary accent color
 - **Fælledby Green**: `#005B3B` - Secondary brand color, buttons
 - **Warm Background**: `#FBF9F7` - Section backgrounds
+- **Bright Blue**: `#3B82F6` - Notice boxes and highlights
 
 ### Typography
 - **Primary Font**: Inter (400, 500, 700 weights)
-- **Brand Font**: Georgia Bold for "Stykka" logo
+- **Brand Font**: Georgia Bold for "Stykka" logo (now larger in footer)
 
 ## 🚀 Performance Optimizations
 
 - **Font Loading**: Async font loading with fallbacks
 - **Image Optimization**: Lazy loading on all non-critical images
-- **Script Deferring**: Deferred loading of Tailwind and Lucide icons
+- **Script Loading**: Synchronous Tailwind CSS for immediate styling
 - **Resource Hints**: DNS prefetch and preload for critical resources
+- **Glass Morphism**: Backdrop blur effects for premium appearance
+
+## ✨ Interactive Features
+
+### Color Switcher
+- **Interactive buttons** in top-left of kitchen banner
+- **Auto-cycling** through 4 colors every 4 seconds
+- **Manual control** with 10-second pause after user interaction
+- **Smooth transitions** between kitchen variants
+
+### Header Transparency
+- **Dynamic opacity** changes on scroll
+- **Backdrop blur** effects for readability
+- **Smooth transitions** for premium feel
+
+### Service Cards
+- **Custom PNG icons** (180px) for each service
+- **Fælledby orange tint** for brand consistency
+- **Hover animations** with lift effects
+- **Staggered appearance** animations
 
 ## 📁 File Structure
 
@@ -74,6 +95,23 @@ Configured for Vercel deployment with automatic builds on push to main branch.
 - **Parts Ordering**: `https://www.stykka.com/parts`
 - **YouTube**: Embedded partnership video
 
+## 🎯 Key Features Added
+
+### Pricing Section
+- **Complete kitchen color change**: 11.230 dkk (16 x fronter)
+- **Individual upgrades**: Detailed pricing list
+- **Service notice**: Blue textured box with installation guarantee
+
+### Textured Footer
+- **Custom texture**: Uses `background-texture.jpg` with green overlay
+- **Consistent branding**: Applied to both pages
+- **Larger Stykka logo**: Georgia Bold, removed "ApS"
+
+### Navigation
+- **Section-based**: Links to page sections (#tilvalg, #takeback, etc.)
+- **Footer links**: External services (upgrades, parts)
+- **Proper alignment**: Navigation matches page structure
+
 ---
 
-**Built with care for Fælledby residents by Stykka ApS** 
+**Built with care for Fælledby residents by Stykka** 

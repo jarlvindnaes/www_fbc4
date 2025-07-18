@@ -6,8 +6,8 @@
     <meta name="description" content="Vedligeholdelse af dit Stykka køkken. Pleje af materialer, mekanisk stramning og professionel service.">
     <meta name="keywords" content="Stykka, vedligeholdelse, køkken, pleje, service, krydsfiner, linoleum, laminat">
     <title>Vedligeholdelse - Stykka Køkken i Fælledby</title>
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -115,38 +115,6 @@
             padding: 1rem;
             margin: 1.5rem 0;
         }
-        .material-button {
-            padding: 1rem 1.5rem;
-            border: 2px solid #d1d5db;
-            border-radius: 0.75rem;
-            background-color: white;
-            color: #374151;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            text-align: center;
-            position: relative;
-        }
-        .material-button.active {
-            background-color: #ab6627;
-            color: white;
-            border-color: #ab6627;
-            box-shadow: 0 4px 12px rgba(171, 102, 39, 0.25);
-        }
-        .material-button:hover {
-            border-color: #ab6627;
-            background-color: #fef3e8;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        .material-button.active:hover {
-            background-color: #92551f;
-            transform: translateY(-2px);
-        }
         .material-icon {
             width: 2.5rem;
             height: 2.5rem;
@@ -167,16 +135,6 @@
         }
         .material-button:hover:not(.active) .material-icon {
             background-color: #92551f;
-        }
-        .material-content {
-            display: none;
-            background-color: #fafafa;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            border: 1px solid #e5e7eb;
-        }
-        .material-content.active {
-            display: block;
         }
         .material-content h4 {
             color: #374151;
@@ -201,6 +159,108 @@
                 font-size: 1.25rem;
             }
         }
+        
+        /* Scrolling header transparency */
+        .header-transparent {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Textured footer matching main page */
+        .textured-footer {
+            position: relative;
+            background: url('images/background-texture.jpg') repeat;
+        }
+        .textured-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 91, 59, 0.6);
+            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+        .textured-footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0, 91, 59, 0.1) 0%, rgba(0, 91, 59, 0.2) 100%);
+            mix-blend-mode: overlay;
+            z-index: 2;
+        }
+        
+        /* Enhanced material buttons */
+        .material-button {
+            padding: 1rem 1.5rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.75rem;
+            background-color: white;
+            color: #374151;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: center;
+            position: relative;
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .material-button.active {
+            background: linear-gradient(135deg, #ab6627 0%, #d4822e 100%);
+            color: white;
+            border-color: #ab6627;
+            box-shadow: 0 8px 25px rgba(171, 102, 39, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .material-button:hover:not(.active) {
+            border-color: #ab6627;
+            background: linear-gradient(135deg, #fef3e8 0%, #fff 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .material-button.active:hover {
+            background: linear-gradient(135deg, #92551f 0%, #ab6627 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(171, 102, 39, 0.4);
+        }
+        
+        /* Glass morphism for content */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Smooth content transitions */
+        .material-content {
+            display: none;
+            background: linear-gradient(135deg, rgba(250, 250, 250, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%);
+            backdrop-filter: blur(8px);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 1px solid rgba(171, 102, 39, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .material-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -214,8 +274,8 @@
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="index.html" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Hjem</a>
                 <a href="vedligeholdelse.html" class="text-black font-medium text-sm">Vedligeholdelse</a>
-                <a href="#" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Opgraderinger</a>
-                <a href="#" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Reservedele</a>
+                <a href="index.html#tilvalg" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Tilvalg</a>
+                <a href="index.html#takeback" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Take-Back</a>
             </nav>
         </div>
     </header>
@@ -274,7 +334,7 @@
                 </div>
 
                 <!-- Interactive Materials Section -->
-                <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                <div class="glass-card bg-white p-8 rounded-lg shadow-lg border border-gray-100">
                     <h2 class="text-2xl font-bold mb-6 faelledby-accent">Pleje og Vedligeholdelse</h2>
                     
                     <!-- Material Selection Buttons -->
@@ -436,7 +496,7 @@
             </div>
 
             <!-- Additional Tips Section -->
-            <div class="mt-16 bg-white p-8 rounded-lg shadow-sm">
+            <div class="mt-16 glass-card bg-white p-8 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold mb-6 faelledby-accent">Ekstra Tips til Langtidsholdbarhed</h2>
                 
                 <div class="grid md:grid-cols-3 gap-8">
@@ -476,11 +536,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="faelledby-green">
+    <footer class="textured-footer">
         <div class="content-section py-12">
             <div class="grid md:grid-cols-3 gap-8 text-left">
                 <div>
-                    <h3 class="font-bold text-lg mb-4 text-white">Stykka ApS</h3>
+                    <h3 class="stykka-logo text-3xl mb-4 text-white">Stykka</h3>
                     <p class="text-gray-200 text-sm">Refshalevej 163A<br>1432 København K</p>
                 </div>
                 <div>
@@ -498,7 +558,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-400 mt-8 pt-6 text-left text-gray-300 text-xs">
-                <p>&copy; 2025 Stykka ApS. Alle rettigheder forbeholdes.</p>
+                <p>&copy; 2025 Stykka. Alle rettigheder forbeholdes.</p>
             </div>
         </div>
     </footer>
@@ -507,26 +567,67 @@
         // Initialize Lucide icons
         lucide.createIcons();
         
-        // Interactive material buttons functionality
+        // Header transparency on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-transparent');
+            } else {
+                header.classList.remove('header-transparent');
+            }
+        });
+        
+        // Enhanced material buttons functionality
         document.addEventListener('DOMContentLoaded', function() {
             const materialButtons = document.querySelectorAll('.material-button');
             const materialContents = document.querySelectorAll('.material-content');
             
-            materialButtons.forEach(button => {
+            materialButtons.forEach((button, index) => {
+                // Add staggered animation delay
+                button.style.animationDelay = `${index * 0.1}s`;
+                
                 button.addEventListener('click', function() {
                     const targetMaterial = this.getAttribute('data-material');
                     
-                    // Remove active class from all buttons
-                    materialButtons.forEach(btn => btn.classList.remove('active'));
+                    // Remove active class from all buttons with animation
+                    materialButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
                     // Add active class to clicked button
                     this.classList.add('active');
                     
-                    // Hide all material content sections
-                    materialContents.forEach(content => content.classList.remove('active'));
-                    // Show target material content
-                    document.getElementById(targetMaterial).classList.add('active');
+                    // Hide all material content sections with fade out
+                    materialContents.forEach(content => {
+                        content.classList.remove('active');
+                        setTimeout(() => {
+                            content.style.display = 'none';
+                        }, 200);
+                    });
+                    
+                    // Show target material content with fade in
+                    setTimeout(() => {
+                        const targetContent = document.getElementById(targetMaterial);
+                        if (targetContent) {
+                            targetContent.style.display = 'block';
+                            setTimeout(() => {
+                                targetContent.classList.add('active');
+                            }, 50);
+                        }
+                    }, 200);
                 });
             });
+            
+            // Initialize first content
+            setTimeout(() => {
+                const firstContent = document.getElementById('plywood');
+                if (firstContent) {
+                    firstContent.style.display = 'block';
+                    setTimeout(() => {
+                        firstContent.classList.add('active');
+                    }, 100);
+                }
+            }, 500);
         });
     </script>
 

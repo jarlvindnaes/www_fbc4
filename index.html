@@ -7,8 +7,8 @@
     <meta name="keywords" content="Stykka, køkken, Fælledby, bæredygtig, cirkulær, design, Danmark">
     <meta name="author" content="Stykka ApS">
     <title>Velkommen til dit Stykka Køkken i Fælledby</title>
-    <script src="https://cdn.tailwindcss.com" defer></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -193,28 +193,199 @@
             object-fit: cover;
             transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .blend-image:nth-child(1) {
-            opacity: 1;
-            animation: seamlessBlend 20s infinite;
-        }
-        .blend-image:nth-child(2) {
-            opacity: 0;
-            animation: seamlessBlend 20s infinite 5s;
-        }
-        .blend-image:nth-child(3) {
-            opacity: 0;
-            animation: seamlessBlend 20s infinite 10s;
-        }
-        .blend-image:nth-child(4) {
-            opacity: 0;
-            animation: seamlessBlend 20s infinite 15s;
-        }
         @keyframes seamlessBlend {
             0% { opacity: 0; }
             5% { opacity: 1; }
             20% { opacity: 1; }
             25% { opacity: 0; }
             100% { opacity: 0; }
+        }
+        
+        /* Scrolling header transparency */
+        .header-transparent {
+            background-color: rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+        
+        /* Parallax scrolling effect */
+        .parallax-element {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+        
+        /* Subtle hover animations */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Enhanced shadows */
+        .content-section {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Staggered animations */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        
+        /* Glass morphism for cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Color selector buttons */
+        .color-selector {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+        
+        .color-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .color-btn:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        .color-btn.active {
+            transform: translateY(-2px) scale(1.1);
+            border-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        .color-btn-blue { background: linear-gradient(135deg, #2C5282 0%, #2A4A6B 100%); }
+        .color-btn-green { background: linear-gradient(135deg, #22543D 0%, #1A202C 100%); }
+        .color-btn-grey { background: linear-gradient(135deg, #A0AEC0 0%, #718096 100%); }
+        .color-btn-red { background: linear-gradient(135deg, #742A2A 0%, #553C39 100%); }
+        
+        /* Navy blue notice box */
+        .notice-box {
+            position: relative;
+            background: url('images/background-texture.jpg') repeat;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            margin-top: 2rem;
+            color: white;
+            grid-column: 1 / -1;
+        }
+        .notice-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(59, 130, 246, 0.7);
+            mix-blend-mode: multiply;
+            border-radius: 0.75rem;
+            z-index: 1;
+        }
+        .notice-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.2) 100%);
+            mix-blend-mode: overlay;
+            border-radius: 0.75rem;
+            z-index: 2;
+        }
+        .notice-box-content {
+            position: relative;
+            z-index: 3;
+        }
+        
+        /* Service cards with icons */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-icon {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.15));
+        }
+        
+        /* Fælledby toned service cards */
+        .service-card-maintenance,
+        .service-card-upgrade,
+        .service-card-parts {
+            background: linear-gradient(135deg, rgba(171, 102, 39, 0.08) 0%, rgba(171, 102, 39, 0.03) 100%);
+        }
+        
+        /* Blend image transitions */
+        .blend-image {
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .blend-image.active {
+            opacity: 1 !important;
+        }
+        
+        .blend-image:not(.active) {
+            opacity: 0;
         }
         @media (min-width: 768px) {
             .blended-banner {
@@ -223,9 +394,7 @@
         }
         .textured-footer {
             position: relative;
-            background: linear-gradient(135deg, #1a3530 0%, #2d5a4f 50%, #1a3530 100%);
-            background-size: 400% 400%;
-            animation: subtleGradient 15s ease infinite;
+            background: url('images/background-texture.jpg') repeat;
         }
         .textured-footer::before {
             content: '';
@@ -234,12 +403,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
-            background-size: 300px 300px, 400px 400px, 200px 200px;
-            background-position: 0 0, 200px 200px, 100px 100px;
+            background: rgba(0, 91, 59, 0.6);
+            mix-blend-mode: multiply;
             z-index: 1;
         }
         .textured-footer::after {
@@ -249,10 +414,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.01) 50%, transparent 60%),
-                linear-gradient(-45deg, transparent 40%, rgba(255, 255, 255, 0.01) 50%, transparent 60%);
-            background-size: 60px 60px;
+            background: linear-gradient(180deg, rgba(0, 91, 59, 0.1) 0%, rgba(0, 91, 59, 0.2) 100%);
+            mix-blend-mode: overlay;
             z-index: 2;
         }
         .footer-overlay {
@@ -502,8 +665,8 @@
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#tilvalg" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Tilvalg</a>
                 <a href="#takeback" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Take-Back</a>
-                <a href="#sustainability" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Bæredygtighed</a>
                 <a href="#qrcode" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">QR-koder</a>
+                <a href="#service" class="text-gray-600 hover:text-black font-medium text-sm transition-colors">Service</a>
             </nav>
         </div>
     </header>
@@ -537,7 +700,7 @@
                 <p class="section-subtitle">Dit køkken er et Stykka Køkken – designet og produceret i Danmark med fokus på æstetik, funktionalitet og ansvarlighed. Vores ambition er at skabe smukke, brugervenlige og bæredygtige løsninger, der holder hele livet. Og når tiden eller tendenserne skifter, er det nemt at forny køkkenet: Du opdaterer designet og funktionaliteten – vi tager de gamle elementer retur, genbruger komponenterne og omdanner materialerne til nye dele. Det kalder vi cirkulært design – en filosofi, vi deler med Fælledby.</p>
             </div>
             <div>
-                <img src="images/kitchen-detail.jpg" alt="Nærbillede af Stykka køkken detalje" class="rounded-lg w-full h-auto shadow-lg" loading="lazy">
+                <img src="images/kitchen-detail.jpg" alt="Nærbillede af Stykka køkken detalje" class="parallax-element rounded-lg w-full h-auto shadow-lg" data-speed="0.1" loading="lazy">
             </div>
         </div>
     </section>
@@ -554,21 +717,21 @@
                 <p class="section-subtitle">Bæredygtighed – Kernen i alt, vi gør – fra design og materialer til produktion, emballage og levering, videre til genbrug og genanvendelse.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-                <div class="faelledby-warm p-6 md:p-8 rounded-lg">
+                <div class="glass-card faelledby-warm p-6 md:p-8 rounded-lg shadow-lg stagger-1">
                     <div class="section-icon">
                         <i data-lucide="shield"></i>
                     </div>
                     <h3 class="font-bold text-lg md:text-xl mb-4 faelledby-accent">Langtidsholdbart</h3>
                     <p class="text-gray-600 text-sm md:text-base">Bygget til generationer. Tidløst design, robust konstruktion og opgraderbare dele holder køkkenet smukt og stærkt år efter år.</p>
                 </div>
-                <div class="faelledby-warm p-6 md:p-8 rounded-lg">
+                <div class="glass-card faelledby-warm p-6 md:p-8 rounded-lg shadow-lg stagger-1">
                     <div class="section-icon">
                         <i data-lucide="layers"></i>
                     </div>
                     <h3 class="font-bold text-lg md:text-xl mb-4 faelledby-accent">Modulært & Foranderligt</h3>
                     <p class="text-gray-600 text-sm md:text-base">Køkkenet følger dig. Ændr layout, tilføj moduler eller byt dele, når behovet skifter – uden at skifte hele køkkenet.</p>
                 </div>
-                <div class="faelledby-warm p-6 md:p-8 rounded-lg">
+                <div class="glass-card faelledby-warm p-6 md:p-8 rounded-lg shadow-lg stagger-1">
                     <div class="section-icon">
                         <i data-lucide="leaf"></i>
                     </div>
@@ -584,10 +747,18 @@
         <div class="content-section">
             <!-- Blended Banner -->
             <div class="blended-banner">
-                <img src="images/gif/01-blue.jpg" alt="Blå køkken variant" class="blend-image" loading="lazy">
-                <img src="images/gif/01-green.jpg" alt="Grøn køkken variant" class="blend-image" loading="lazy">
-                <img src="images/gif/01-grey.jpg" alt="Grå køkken variant" class="blend-image" loading="lazy">
-                <img src="images/gif/01-red.jpg" alt="Rød køkken variant" class="blend-image" loading="lazy">
+                <img src="images/gif/01-blue.jpg" alt="Blå køkken variant" class="blend-image active" data-color="blue" loading="lazy">
+                <img src="images/gif/01-green.jpg" alt="Grøn køkken variant" class="blend-image" data-color="green" loading="lazy">
+                <img src="images/gif/01-grey.jpg" alt="Grå køkken variant" class="blend-image" data-color="grey" loading="lazy">
+                <img src="images/gif/01-red.jpg" alt="Rød køkken variant" class="blend-image" data-color="red" loading="lazy">
+                
+                <!-- Color Selector Buttons -->
+                <div class="color-selector">
+                    <button class="color-btn color-btn-blue active" data-color="blue" title="Blå køkken"></button>
+                    <button class="color-btn color-btn-green" data-color="green" title="Grøn køkken"></button>
+                    <button class="color-btn color-btn-grey" data-color="grey" title="Grå køkken"></button>
+                    <button class="color-btn color-btn-red" data-color="red" title="Rød køkken"></button>
+                </div>
             </div>
             
             <div class="max-w-3xl mb-12">
@@ -603,6 +774,10 @@
                     <h3 class="text-xl md:text-2xl font-bold mb-4 faelledby-accent">Muligheder og Prisliste</h3>
                     <p class="text-gray-600 mb-6 text-sm md:text-base">Her er et udpluk af de mest populære tilvalg. Alle priser er inkl. moms og montering.</p>
                     <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b pb-3 border-gray-200">
+                            <span class="font-medium text-sm md:text-base">Farveskift på helt køkken <span class="text-gray-500 text-xs md:text-sm">(16 x fronter)</span></span>
+                            <span class="font-bold text-gray-800 text-sm md:text-base">11.230 dkk</span>
+                        </div>
                         <div class="flex justify-between items-center border-b pb-3 border-gray-200">
                             <span class="font-medium text-sm md:text-base">Farveskift på underskab</span>
                             <span class="font-bold text-gray-800 text-sm md:text-base">840 dkk</span>
@@ -623,8 +798,9 @@
                     <div class="mt-12">
                         <a href="https://www.stykka.com/upgrades/fbc4" target="_blank" class="btn btn-primary w-full text-center">Besøg Upgrade Shop</a>
                     </div>
+                    
                 </div>
-                <div class="faelledby-warm p-6 md:p-8 rounded-lg">
+                <div class="glass-card faelledby-warm p-6 md:p-8 rounded-lg shadow-lg stagger-1">
                     <h3 class="text-xl md:text-2xl font-bold mb-4">Proces for Tilvalg</h3>
                     <p class="text-gray-700 mb-6 text-sm md:text-base">Processen er enkel og håndteres direkte mellem den kommende beboer og Stykka for at sikre en smidig oplevelse.</p>
                     
@@ -659,6 +835,21 @@
                                 <h4>Levering</h4>
                                 <p>Efter accept koordinerer Stykka levering og montering.</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Notice Box -->
+            <div class="notice-box">
+                <div class="notice-box-content">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 mt-1">
+                            <i data-lucide="info" class="w-5 h-5 text-blue-200"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg mb-2 text-white">Stykka Service</h4>
+                            <p class="text-blue-50 text-sm leading-relaxed">Stykka inkluderer altid montage og afhentning af brugte dele, når vi leverer de nye. Vores erfarne montører sørger for en smidig overgang og tager ansvar for den cirkulære proces.</p>
                         </div>
                     </div>
                 </div>
@@ -726,7 +917,7 @@
     </section>
 
     <!-- Service Links Section -->
-    <section class="py-16 md:py-24 bg-white">
+    <section id="service" class="py-16 md:py-24 bg-white">
         <div class="content-section">
             <!-- Service Banner -->
             <div class="service-banner">
@@ -743,27 +934,27 @@
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="faelledby-warm p-6 md:p-8 rounded-lg text-center">
-                    <div class="section-icon mx-auto">
-                        <i data-lucide="settings"></i>
+                <div class="service-card service-card-maintenance glass-card p-6 md:p-8 rounded-lg shadow-lg stagger-1 text-center">
+                    <div class="service-icon-container">
+                        <img src="images/icon-cleaning.png" alt="Vedligeholdelse ikon" class="service-icon">
                     </div>
                     <h3 class="font-bold text-xl mb-4 faelledby-accent">Vedligeholdelse</h3>
                     <p class="text-gray-600 text-sm md:text-base mb-6">Få vejledning i den daglige pleje og vedligeholdelse af dit køkken for at sikre optimal holdbarhed og udseende.</p>
                     <a href="vedligeholdelse.html" class="btn btn-primary">Vedligeholdelsesguide</a>
                 </div>
                 
-                <div class="faelledby-warm p-6 md:p-8 rounded-lg text-center">
-                    <div class="section-icon mx-auto">
-                        <i data-lucide="arrow-up-circle"></i>
+                <div class="service-card service-card-upgrade glass-card p-6 md:p-8 rounded-lg shadow-lg stagger-2 text-center">
+                    <div class="service-icon-container">
+                        <img src="images/icon-upgrade.png" alt="Opgraderinger ikon" class="service-icon">
                     </div>
                     <h3 class="font-bold text-xl mb-4 faelledby-accent">Opgraderinger</h3>
                     <p class="text-gray-600 text-sm md:text-base mb-6">Udforsk nye muligheder for at opgradere og udvide dit køkken med nye funktioner og elementer.</p>
                     <a href="https://www.stykka.com/upgrades/fbc4" target="_blank" class="btn btn-primary">Se Opgraderinger</a>
                 </div>
                 
-                <div class="faelledby-warm p-6 md:p-8 rounded-lg text-center">
-                    <div class="section-icon mx-auto">
-                        <i data-lucide="package"></i>
+                <div class="service-card service-card-parts glass-card p-6 md:p-8 rounded-lg shadow-lg stagger-3 text-center">
+                    <div class="service-icon-container">
+                        <img src="images/icon-sparepart.png" alt="Reservedele ikon" class="service-icon">
                     </div>
                     <h3 class="font-bold text-xl mb-4 faelledby-accent">Reservedele</h3>
                     <p class="text-gray-600 text-sm md:text-base mb-6">Bestil originale reservedele og tilbehør direkte fra Stykka for at sikre perfekt pasform og kvalitet.</p>
@@ -807,7 +998,7 @@
         <div class="content-section py-16 relative z-10">
             <div class="grid md:grid-cols-3 gap-12 text-left">
                 <div>
-                    <h3 class="font-semibold text-xl mb-6 text-white">Stykka ApS</h3>
+                    <h3 class="stykka-logo text-4xl mb-6 text-white">Stykka</h3>
                     <p class="text-gray-200 text-base leading-relaxed">Refshalevej 163A<br>1432 København K</p>
                 </div>
                 <div>
@@ -834,7 +1025,7 @@
             </div>
             <div class="border-t border-white/20 mt-12 pt-8 text-left">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    <p class="text-gray-300 text-sm">&copy; 2025 Stykka ApS. Alle rettigheder forbeholdes.</p>
+                    <p class="text-gray-300 text-sm">&copy; 2025 Stykka. Alle rettigheder forbeholdes.</p>
                     <div class="flex items-center gap-4">
                         <span class="text-xs text-gray-400">Designet til</span>
                         <span class="text-lg font-bold text-white">Fælledby</span>
@@ -847,6 +1038,112 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+        
+        // Header transparency on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-transparent');
+            } else {
+                header.classList.remove('header-transparent');
+            }
+        });
+        
+        // Parallax scrolling effect
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-element');
+            
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+        
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all content sections
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.style.animationPlayState = 'paused';
+            observer.observe(section);
+        });
+        
+        // Color selector functionality with auto-switching
+        document.addEventListener('DOMContentLoaded', function() {
+            const colorButtons = document.querySelectorAll('.color-btn');
+            const blendImages = document.querySelectorAll('.blend-image');
+            const colors = ['blue', 'green', 'grey', 'red'];
+            let currentIndex = 0;
+            let autoSwitchInterval;
+            let userInteracting = false;
+            
+            function switchToColor(colorIndex) {
+                const targetColor = colors[colorIndex];
+                
+                // Remove active class from all buttons and images
+                colorButtons.forEach(btn => btn.classList.remove('active'));
+                blendImages.forEach(img => img.classList.remove('active'));
+                
+                // Add active class to target button and image
+                const targetButton = document.querySelector(`button[data-color="${targetColor}"]`);
+                const targetImage = document.querySelector(`img[data-color="${targetColor}"]`);
+                
+                if (targetButton && targetImage) {
+                    targetButton.classList.add('active');
+                    targetImage.classList.add('active');
+                }
+                
+                currentIndex = colorIndex;
+            }
+            
+            function startAutoSwitch() {
+                autoSwitchInterval = setInterval(() => {
+                    if (!userInteracting) {
+                        currentIndex = (currentIndex + 1) % colors.length;
+                        switchToColor(currentIndex);
+                    }
+                }, 4000); // Switch every 4 seconds
+            }
+            
+            function stopAutoSwitch() {
+                clearInterval(autoSwitchInterval);
+            }
+            
+            // Manual color selection
+            colorButtons.forEach((button, index) => {
+                button.addEventListener('click', function() {
+                    userInteracting = true;
+                    stopAutoSwitch();
+                    
+                    const targetColor = this.getAttribute('data-color');
+                    const colorIndex = colors.indexOf(targetColor);
+                    switchToColor(colorIndex);
+                    
+                    // Resume auto-switching after 10 seconds of no interaction
+                    setTimeout(() => {
+                        userInteracting = false;
+                        startAutoSwitch();
+                    }, 10000);
+                });
+            });
+            
+            // Start auto-switching on page load
+            startAutoSwitch();
+        });
     </script>
 
 </body>
